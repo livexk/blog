@@ -1,0 +1,18 @@
+{
+    "version": 3,
+    "sources": [
+        "../../../../src/common/config/locale/zh-cn.js"
+    ],
+    "names": [
+        "not_verify",
+        "validate_required_username",
+        "validate_contains",
+        "validate_length_passwd",
+        "validate_alphaNumericDash_passwd"
+    ],
+    "mappings": ";;;AAAA;;;kBAGe;AACXA,gBAAY,iBADD;AAEXC,gCAA4B,OAFjB;AAGXC,uBAAmB,6BAHR;AAIXC,4BAAwB,oBAJb;AAKXC,sCAAkC;AALvB,C",
+    "file": "../../../../src/common/config/locale/zh-cn.js",
+    "sourcesContent": [
+        "/**\n * Created by hy on 16-9-14.\n */\nexport default {\n    not_verify: \"对不起,验证码输入错误,请重试\",\n    validate_required_username: \"用户名必填\",\n    validate_contains: \"{name} need contains {args}\",\n    validate_length_passwd: \"密码长度为6-20位,不包含特殊字符\",\n    validate_alphaNumericDash_passwd: \"密码长度为6-20位,不包含特殊字符\",\n}"
+    ]
+}

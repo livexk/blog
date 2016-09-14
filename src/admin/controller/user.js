@@ -10,7 +10,8 @@ export default class extends think.controller.base {
      */
     loginAction() {
         if (true == this.http.isPost()) {
-
+            let model = this.model("user");
+            model.getList;
         } else {
             return this.display();
         }
@@ -27,7 +28,7 @@ export default class extends think.controller.base {
             offset: 35,
             quality: 50,
             generate: function () {
-                return (Math.random()*10000+1).toString();
+                return parseInt(Math.random()*10000+1).toString();
             }
         });
         var ary = captcha.get();

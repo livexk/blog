@@ -1,0 +1,33 @@
+{
+    "version": 3,
+    "sources": [
+        "../../../src/admin/logic/user.js"
+    ],
+    "names": [
+        "loginAction",
+        "http",
+        "isPost",
+        "username",
+        "post",
+        "passwd",
+        "verify",
+        "session",
+        "value",
+        "toString",
+        "error",
+        "locale",
+        "rules",
+        "flag",
+        "validate",
+        "fail",
+        "errors",
+        "think",
+        "logic",
+        "base"
+    ],
+    "mappings": ";;;;;;;;;;;;;;;;;;;;;;AAAA;;;;;;;;;;;AAII;;;qBAGCA,W;;;;;;8BACO,QAAQ,KAAKC,IAAL,CAAUC,MAAV,E;;;;;AACJC,gC,GAAW,KAAKF,IAAL,CAAUG,IAAV,CAAe,UAAf,C;AACXC,8B,GAAS,KAAKJ,IAAL,CAAUG,IAAV,CAAe,QAAf,C;AACTE,8B,GAAS,KAAKL,IAAL,CAAUG,IAAV,CAAe,QAAf,C;;+BACO,KAAKH,IAAL,CAAUM,OAAV,CAAkB,QAAlB,C;;;AAAhBC,6B;;8BAEAA,MAAMC,QAAN,OAAqBH,OAAOG,QAAP,E;;;;;yDACf,KAAKC,KAAL,CAAW,KAAKC,MAAL,CAAY,YAAZ,CAAX,C;;;;AAGV;AACIC,6B,GAAQ;AACRT,sCAAU,iBADF;AAERE,oCAAQ;AAFA,yB;AAIRQ,4B,GAAO,KAAKC,QAAL,CAAcF,KAAd,C;;4BACPC,I;;;;;yDACO,KAAKE,IAAL,CAAU,gBAAV,EAA4B,KAAKC,MAAL,EAA5B,C;;;;;;;;;;EAtBMC,MAAMC,KAAN,CAAYC,I",
+    "file": "../../../src/admin/logic/user.js",
+    "sourcesContent": [
+        "/**\n * Created by hy on 16-9-13.\n */\nexport default class extends think.logic.base {\n    /**\n     * some base method in here\n     */\n    *loginAction() {\n        if (true == this.http.isPost()) {\n            let username = this.http.post('username');\n            let passwd = this.http.post('passwd');\n            let verify = this.http.post('verify');\n            let value =   yield this.http.session('verify');\n            /*校验验证码*/\n            if (value.toString() !== verify.toString()){\n              return  this.error(this.locale(\"not_verify\"))\n            }\n\n            /*校验数据*/\n            let rules = {\n                username: \"string|required\",\n                passwd: \"alphaNumericDash|length:6,20\"\n            };\n            let flag = this.validate(rules);\n            if(!flag){\n                return this.fail(\"validate error\", this.errors());\n            }\n        }\n    }\n}"
+    ]
+}

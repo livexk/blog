@@ -1,0 +1,22 @@
+{
+    "version": 3,
+    "sources": [
+        "../../../src/admin/model/user.js"
+    ],
+    "names": [
+        "pk",
+        "login",
+        "getList",
+        "instance",
+        "model",
+        "select",
+        "list",
+        "think",
+        "base"
+    ],
+    "mappings": "AAAA;AACA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;4KAIIA,E,GAAK,K;;;qBAEHC,K;;;;;;;;;;;qBAIAC,O;;;;;;AACE;AACIC,gC,GAAW,KAAKC,KAAL,CAAW,MAAX,C;;+BACED,SAASE,MAAT,E;;;AAAbC,4B;0DACGA,I;;;;;;;;;;EAXcC,MAAMH,KAAN,CAAYI,I",
+    "file": "../../../src/admin/model/user.js",
+    "sourcesContent": [
+        "'use strict';\n/**\n * model\n */\nexport default class extends think.model.base {\n    pk = 'uid';\n\n    * login() {\n\n    }\n\n    * getList() {\n        //获取 user 模型实例\n        let instance = this.model(\"user\");\n        let list = yield instance.select();\n        return list;\n    }\n}"
+    ]
+}
